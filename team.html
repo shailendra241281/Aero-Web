@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aero Club | Our Team</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Year selector styles */
+        .year-selector-wrapper {
+            width: 100%;
+            margin: 20px 0 30px;
+        }
+        
+        .year-selector-container {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .current-year {
+            background: linear-gradient(135deg, var(--accent), #1139be);
+            color: var(--primary-dark);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .current-year:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(100, 255, 218, 0.5);
+        }
+        
+        .current-year i {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .current-year:hover i {
+            transform: translateY(5px);
+        }
+        
+        .year-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            transform: translateY(10px);
+            background: var(--card-bg);
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            border-radius: 10px;
+            padding: 10px 0;
+            min-width: 150px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        
+        .year-selector-container:hover .year-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(5px);
+        }
+        
+        .year-dropdown li {
+            list-style: none;
+            padding: 10px 20px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .year-dropdown li:hover {
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--accent);
+        }
+        
+        .year-dropdown li.active {
+            color: var(--accent);
+            background: rgba(100, 255, 218, 0.05);
+            font-weight: 600;
+        }
+        
+        .team-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .team-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 5px 20px rgba(100, 255, 218, 0.2);
+        }
+        
+        .team-card .year-badge {
+            display: inline-block;
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--accent);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            margin-top: 5px;
+        }
+
+         /* Team Grid - Default for all teams */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        /* Coordinators Grid - Specific for 2 cards per row */
+        #coordinatorsGrid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Responsive for mobile */
+        @media (max-width: 768px) {
+            #coordinatorsGrid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .team-subtitle {
+            text-align: center;
+            color: #ccd6f6;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .team-subtitle:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+    </style>
+</head>
+<body>
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-image">
+                    <img src="images/clublogo.png" alt="Aero Modelling">
+                </div>
+                <div class="logo-text-3d">
+                    AERO<span> MODELLING</span>
+                </div>
+            </a>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="competitions.html">Competitions</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="team.html" class="active">Team</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <!-- <li><a href="faq.html">FAQ</a></li> -->
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Team Hero Section -->
+    <section class="hero" style="height: 60vh;">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <div>
+                <h1 style="font-size: 3.5rem;">MEET OUR TEAM</h1>
+                <p>The passionate individuals who make Aero Club possible</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="bg-waves"></div>
+        <div class="container">
+            <div class="section-title">
+                <h2 class="gradient-text">OUR FLIGHT CREW</h2>
+                <p>Dedicated professionals driving aviation innovation</p>
+            </div>
+
+            <!-- Year Selector for Coordinators - Shifted to Left -->
+            <div class="year-selector-wrapper">
+                <div class="year-selector-container">
+                    <div class="current-year">
+                        <span id="selectedYear">2025</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <ul class="year-dropdown" id="yearDropdown">
+                        <li class="active" data-year="2025">2025</li>
+                        <li data-year="2024">2024</li>
+                        <li data-year="2023">2023</li>
+                        <li data-year="2022">2022</li>
+                        <li data-year="2021">2021</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="team-subtitle fade-in" id="coordinatorTitle">Coordinators 2025</h3>
+            <div class="team-grid fade-in" id="coordinatorsGrid">
+                <!-- Coordinators will be dynamically loaded here -->
+            </div>
+
+            <!-- Secretaries Section - Only visible for 2025 -->
+            <div id="secretariesSection">
+                <h3 class="team-subtitle fade-in" style="margin-top: 60px;">Secretaries 2025</h3>
+                <div class="team-grid fade-in" id="secretariesGrid">
+                    <!-- Secretaries will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-plane"></i>
+                        Aeromodelling Club
+                    </div>
+                    <p class="footer-tagline">
+                        Connecting aviation enthusiasts, fostering innovation, and reaching new heights together.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/aero_club_iitk/" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="competitions.html">Competitions</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <!-- <li><a href="faq.html">FAQ</a></li> -->
+                    <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong>OAT Rooftop</strong>
+                                Aviation Innovation Center
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong>+1 (555) 123-4567</strong>
+                                Available 9AM-6PM
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong>contact@aeromodelling.com</strong>
+                                We reply within 24 hours
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2025 Aeromodelling Club. All Rights Reserved. | 
+                    <a href="#">Privacy Policy</a> | 
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/TextPlugin.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+    
+    <script>
+        // Team data organized by year
+        const teamData = {
+            2025: {
+                coordinators: [
+                    {
+                        name: "Karan",
+                        position: "Coordinator",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Leads the entire organizing team with vision and energy.",
+                        instagram: "#",
+                        linkedin: "#"
+                    },
+                    {
+                        name: "Ananya",
+                        position: "Coordinator",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Ensures seamless collaboration across all departments.",
+                        instagram: "https://www.instagram.com/ananyaa__0820/",
+                        linkedin: "https://www.linkedin.com/company/aeromodelling-club-iitk/"
+                    },
+                    {
+                        name: "Kripa Singh",
+                        position: "Coordinator",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Handles event logistics and ensures smooth execution.",
+                        instagram: "#",
+                        linkedin: "#"
+                    },
+                    {
+                        name: "Anshika",
+                        position: "Coordinator",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Manages outreach and sponsor relationships.",
+                        instagram: "#",
+                        linkedin: "#"
+                    }
+                ],
+                secretaries: [
+                    {
+                        name: "Amit Kumar",
+                        position: "Secretary",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Manages club communications and documentation.",
+                        instagram: "#",
+                        linkedin: "#"
+                    },
+                    {
+                        name: "Amit Kumar",
+                        position: "Secretary",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Manages club communications and documentation.",
+                        instagram: "#",
+                        linkedin: "#"
+                    },
+                    {
+                        name: "Amit Kumar",
+                        position: "Secretary",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Manages club communications and documentation.",
+                        instagram: "#",
+                        linkedin: "#"
+                    },
+                    {
+                        name: "Amit Kumar",
+                        position: "Secretary",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Manages club communications and documentation.",
+                        instagram: "#",
+                        linkedin: "#"
+                    },
+                    {
+                        name: "Amit Kumar",
+                        position: "Secretary",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Manages club communications and documentation.",
+                        instagram: "#",
+                        linkedin: "#"
+                    },
+                    {
+                        name: "Amit Kumar",
+                        position: "Secretary",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Manages club communications and documentation.",
+                        instagram: "#",
+                        linkedin: "#"
+                    },
+                    {
+                        name: "Amit Kumar",
+                        position: "Secretary",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Manages club communications and documentation.",
+                        instagram: "#",
+                        linkedin: "#"
+                    },
+                    {
+                        name: "Amit Kumar",
+                        position: "Secretary",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Manages club communications and documentation.",
+                        instagram: "#",
+                        linkedin: "#"
+                    },
+                    {
+                        name: "Amit Kumar",
+                        position: "Secretary",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Manages club communications and documentation.",
+                        instagram: "#",
+                        linkedin: "#"
+                    },
+                    {
+                        name: "Neha Gupta",
+                        position: "Secretary",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Handles technical documentation and project records.",
+                        instagram: "#",
+                        linkedin: "#"
+                    }
+                ]
+            },
+            2024: {
+                coordinators: [
+                    {
+                        name: "Vikram Singh",
+                        position: "Coordinator",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Led the club to victory in national competitions.",
+                        instagram: "#",
+                        linkedin: "#"
+                    },
+                    {
+                        name: "Neha Gupta",
+                        position: "Coordinator",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Organized successful workshops and training sessions.",
+                        instagram: "#",
+                        linkedin: "#"
+                    },
+                    {
+                        name: "Rajesh Patel",
+                        position: "Coordinator",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Managed technical workshops and training.",
+                        instagram: "#",
+                        linkedin: "#"
+                    },
+                    {
+                        name: "Divya Sharma",
+                        position: "Coordinator",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Handled event logistics and coordination.",
+                        instagram: "#",
+                        linkedin: "#"
+                    }
+                ]
+            },
+            2023: {
+                coordinators: [
+                    {
+                        name: "Arjun Reddy",
+                        position: "Coordinator",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Pioneered the drone racing program.",
+                        instagram: "#",
+                        linkedin: "#"
+                    },
+                    {
+                        name: "Meera Sharma",
+                        position: "Coordinator",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Spearheaded the solar aircraft project.",
+                        instagram: "#",
+                        linkedin: "#"
+                    },
+                    {
+                        name: "Suresh Kumar",
+                        position: "Coordinator",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Managed technical workshops and training.",
+                        instagram: "#",
+                        linkedin: "#"
+                    },
+                    {
+                        name: "Priyanka Patel",
+                        position: "Coordinator",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Handled outreach and sponsor relations.",
+                        instagram: "#",
+                        linkedin: "#"
+                    }
+                ]
+            },
+            2022: {
+                coordinators: [
+                    {
+                        name: "Ravi Kumar",
+                        position: "Coordinator",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Established club partnerships with aviation companies.",
+                        instagram: "#",
+                        linkedin: "#"
+                    },
+                    {
+                        name: "Sunita Reddy",
+                        position: "Coordinator",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Organized first inter-college drone competition.",
+                        instagram: "#",
+                        linkedin: "#"
+                    },
+                    {
+                        name: "Amit Shah",
+                        position: "Coordinator",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Led the flight simulator development team.",
+                        instagram: "#",
+                        linkedin: "#"
+                    },
+                    {
+                        name: "Pooja Singh",
+                        position: "Coordinator",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Managed club operations and member engagement.",
+                        instagram: "#",
+                        linkedin: "#"
+                    }
+                ]
+            },
+            2021: {
+                coordinators: [
+                    {
+                        name: "Mohan Das",
+                        position: "Coordinator",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Founded the club and established initial structure.",
+                        instagram: "#",
+                        linkedin: "#"
+                    },
+                    {
+                        name: "Lakshmi Nair",
+                        position: "Coordinator",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Started virtual workshops during pandemic.",
+                        instagram: "#",
+                        linkedin: "#"
+                    },
+                    {
+                        name: "Rajiv Gupta",
+                        position: "Coordinator",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Built first club website and online presence.",
+                        instagram: "#",
+                        linkedin: "#"
+                    },
+                    {
+                        name: "Kavita Sharma",
+                        position: "Coordinator",
+                        image: "https://tse3.mm.bing.net/th/id/OIP.kSwr58mK0Z901dX3FEKvAQHaJ4?pid=ImgDet&w=206&h=274&c=7&dpr=1.5&o=7&rm=3",
+                        bio: "Managed recruitment and member onboarding.",
+                        instagram: "#",
+                        linkedin: "#"
+                    }
+                ]
+            }
+        };
+
+        // DOM elements
+        const selectedYearSpan = document.getElementById('selectedYear');
+        const yearDropdownItems = document.querySelectorAll('.year-dropdown li');
+        const coordinatorsGrid = document.getElementById('coordinatorsGrid');
+        const secretariesGrid = document.getElementById('secretariesGrid');
+        const secretariesSection = document.getElementById('secretariesSection');
+        const coordinatorTitle = document.getElementById('coordinatorTitle');
+
+        // Function to create team member HTML
+        function createTeamMemberHTML(member, year) {
+            return `
+                <div class="team-card coordinator-card">
+                    <img src="${member.image}" alt="${member.name}" class="profile-img" style="width: 80px; height: 80px;">
+                    <h3 style="font-size: 1.2rem; font-weight: 600; margin: 10px 0 5px;">${member.name}</h3>
+                    <p style="color: #06b6d4; font-weight: 500; margin-bottom: 5px;">${member.position}</p>
+                    <span class="year-badge">${year}</span>
+                    <p style="font-size: 0.8rem; color: #cccccc; font-style: italic; line-height: 1.4; margin-top: 10px;">${member.bio}</p>
+                    <div style="display: flex; justify-content: center; gap: 10px; margin-top: 15px;">
+                        <a href="${member.instagram}" class="team-social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="${member.linkedin}" class="team-social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to update team display
+        function updateTeamForYear(year) {
+            const yearData = teamData[year];
+            
+            if (!yearData) {
+                coordinatorsGrid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 50px; color: var(--text-secondary);">No coordinator data available for this year</div>';
+                return;
+            }
+
+            // Update title
+            coordinatorTitle.textContent = `Coordinators ${year}`;
+
+            // Update coordinators
+            if (yearData.coordinators && yearData.coordinators.length > 0) {
+                coordinatorsGrid.innerHTML = yearData.coordinators
+                    .map(coordinator => createTeamMemberHTML(coordinator, year))
+                    .join('');
+            } else {
+                coordinatorsGrid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 50px; color: var(--text-secondary);">No coordinators for this year</div>';
+            }
+
+            // Show secretaries only for 2025
+            if (year === '2025') {
+                secretariesSection.style.display = 'block';
+                if (teamData['2025'].secretaries) {
+                    secretariesGrid.innerHTML = teamData['2025'].secretaries
+                        .map(secretary => createTeamMemberHTML(secretary, '2025'))
+                        .join('');
+                }
+            } else {
+                secretariesSection.style.display = 'none';
+            }
+
+            // Add fade-in animation to new cards
+            document.querySelectorAll('.team-card').forEach(card => {
+                card.classList.add('fade-in');
+            });
+        }
+
+        // Event listeners for year dropdown
+        yearDropdownItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const year = this.dataset.year;
+                
+                // Update active class
+                yearDropdownItems.forEach(li => li.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Update displayed year
+                selectedYearSpan.textContent = year;
+                
+                // Update team data
+                updateTeamForYear(year);
+            });
+        });
+
+        // Initialize with 2025 data
+        document.addEventListener('DOMContentLoaded', function() {
+            updateTeamForYear('2025');
+        });
+    </script>
+</body>
+</html>

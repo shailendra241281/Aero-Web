@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aero Club | Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImage">
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-image">
+                    <img src="images/clublogo.png" alt="Aero Modelling">
+                </div>
+                <div class="logo-text-3d">
+                    AERO<span> MODELLING</span>
+                </div>
+            </a>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="competitions.html">Competitions</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <!-- <li><a href="faq.html">FAQ</a></li> -->
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Gallery Hero Section -->
+    <section class="hero" style="height: 60vh;">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <div>
+                <h1 style="font-size: 3.5rem;">OUR GALLERY</h1>
+                <p>Experience our aviation journey through stunning visuals</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>MEMORIES IN FLIGHT</h2>
+                <p>Capturing moments from our competitions, workshops, and events</p>
+            </div>
+            
+            <div class="carousel-container">
+                <button class="arrow left-arrow">&#10094;</button>
+                <div class="carousel" id="carousel">
+                    <div class="slide"><img src="https://assets-global.website-files.com/6528d7cde4171f39a0f17409/6528d8f7f09f26a034f44b05_cover-story-caa-143067466.jpg" alt="Aircraft Design"></div>
+                    <div class="slide"><img src="data:image/webp;base64,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" alt="Flight Training"></div>
+                    <div class="slide"><img src="https://tse4.mm.bing.net/th/id/OIP.e-Lw_WkoFEbMZHFMyiYJcgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Drone Racing"></div>
+                    <div class="slide"><img src="https://tse4.mm.bing.net/th/id/OIP.Xtu4vRUd3ucnF4BeqNXpiAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Workshop"></div>
+                    <div class="slide"><img src="https://tse1.mm.bing.net/th/id/OIP.Ri15sNak5RqTtXyTuCihagHaLY?w=1397&h=2147&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Flight Simulator"></div>
+                </div>
+                <button class="arrow right-arrow">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Grid Gallery -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>MORE MEMORIES</h2>
+                <p>Browse through our collection of aviation moments</p>
+            </div>
+            
+            <div class="feed-grid" style="margin-top: 40px;">
+                <div class="feed-item gallery-item">
+                    <div class="feed-image">
+                        <img src="https://tse4.mm.bing.net/th/id/OIP.Ac8dOM9ulSYzd9MaU1FkIAHaE7?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Aerodynamics Workshop">
+                    </div>
+                    <div class="feed-content">
+                        <h3 style="color: #ccd6f6; margin-bottom: 10px;">Boeing Workshop</h3>
+                        <p class="feed-text">Students learning about wing design principles in our hands-on workshop.</p>
+                    </div>
+                </div>
+                
+                <div class="feed-item gallery-item">
+                    <div class="feed-image">
+                        <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3" alt="Drone Racing Practice">
+                    </div>
+                    <div class="feed-content">
+                        <h3 style="color: #ccd6f6; margin-bottom: 10px;">Drone Racing Practice</h3>
+                        <p class="feed-text">Team members practicing for the upcoming national drone racing championship.</p>
+                    </div>
+                </div>
+                
+                <div class="feed-item gallery-item">
+                    <div class="feed-image">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3" alt="Flight Simulator Session">
+                    </div>
+                    <div class="feed-content">
+                        <h3 style="color: #ccd6f6; margin-bottom: 10px;">Flight Simulator Session</h3>
+                        <p class="feed-text">Members experiencing realistic flight simulation with professional equipment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-plane"></i>
+                        Aeromodelling Club
+                    </div>
+                    <p class="footer-tagline">
+                        Connecting aviation enthusiasts, fostering innovation, and reaching new heights together.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/aero_club_iitk/" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="competitions.html">Competitions</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <!-- <li><a href="faq.html">FAQ</a></li> -->
+                    <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong>OAT Rooftop</strong>
+                                Aviation Innovation Center
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong>+1 (555) 123-4567</strong>
+                                Available 9AM-6PM
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong>contact@aeromodelling.com</strong>
+                                We reply within 24 hours
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2025 Aeromodelling Club. All Rights Reserved. | 
+                    <a href="#">Privacy Policy</a> | 
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/TextPlugin.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aero Club | Competitions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-image">
+                    <img src="images/clublogo.png" alt="Aero Modelling">
+                </div>
+                <div class="logo-text-3d">
+                    AERO<span> MODELLING</span>
+                </div>
+            </a>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="competitions.html">Competitions</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <!-- <li><a href="faq.html">FAQ</a></li> -->
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Competitions Hero Section -->
+    <section class="hero" style="height: 60vh; background: linear-gradient(180deg, #16213e 0%, #0a0a0a 100%);">
+        <div class="container hero-content">
+            <div>
+                <h1 style="font-size: 3.5rem;">OUR COMPETITIONS</h1>
+                <p>Explore our innovative aviation projects and competition achievements</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitions Section -->
+    <section class="competitions-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>INNOVATION & EXCELLENCE</h2>
+                <p>Pushing the boundaries of aviation technology</p>
+            </div>
+            
+            <div class="domains-grid">
+                <!-- Drone Racing Card -->
+                <div class="domain-card" data-domain="drone-racing">
+                    <div class="domain-card-icon">
+                        <svg viewBox="0 0 100 100">
+                            <path d="M10,50 L90,50 L50,10 L10,50" class="wing-icon"/>
+                            <line x1="50" y1="50" x2="50" y2="90" class="wing-icon"/>
+                        </svg>
+                    </div>
+                    <h3>Drone Racing Championship</h3>
+                    <p>Our team secured 1st place in the national drone racing competition with our custom-built racing drone.</p>
+                    <div class="card-background-animation"></div>
+                </div>
+
+                <!-- Solar Aircraft Card -->
+                <div class="domain-card" data-domain="solar-aircraft">
+                    <div class="domain-card-icon">
+                        <div class="drone-icon">
+                            <div class="di-body"></div>
+                            <div class="di-arm a1"></div>
+                            <div class="di-arm a2"></div>
+                            <div class="di-arm a3"></div>
+                            <div class="di-arm a4"></div>
+                            <div class="di-propeller pr1"></div>
+                            <div class="di-propeller pr2"></div>
+                            <div class="di-propeller pr3"></div>
+                            <div class="di-propeller pr4"></div>
+                        </div>
+                    </div>
+                    <h3>Solar-Powered Aircraft</h3>
+                    <p>Developing a fully solar-powered UAV capable of continuous flight for 24+ hours with innovative design.</p>
+                    <div class="card-background-animation"></div>
+                </div>
+
+                <!-- Flight Simulator Card -->
+                <div class="domain-card" data-domain="flight-simulator">
+                    <div class="domain-card-icon">
+                        <svg viewBox="0 0 100 100" class="cad-svg">
+                            <path class="cad-path" d="M30,30 L70,30 L70,70 L30,70 Z"/>
+                        </svg>
+                    </div>
+                    <h3>Advanced Flight Simulator</h3>
+                    <p>Built a professional-grade flight simulator with motion platform for realistic pilot training experiences.</p>
+                    <div class="card-background-animation"></div>
+                </div>
+
+                <!-- R&D Card -->
+                <div class="domain-card" data-domain="rnd">
+                    <div class="domain-card-icon">
+                        <div class="data-flow">
+                            <span class="data-bit">1</span>
+                            <span class="data-bit">0</span>
+                            <span class="data-bit">1</span>
+                            <span class="data-bit">0</span>
+                        </div>
+                    </div>
+                    <h3>Research & Development</h3>
+                    <p>Pioneering research in autonomous systems, AI integration, and cutting-edge aerospace technology.</p>
+                    <div class="card-background-animation"></div>
+                </div>
+            </div>
+
+            <!-- Additional Info -->
+            <div class="mission-vision" style="margin-top: 60px;">
+                <h3 style="text-align: center; margin-bottom: 30px; color: #ccd6f6;">Competition Schedule 2025</h3>
+                <div class="cards">
+                    <div class="card">
+                        <h3>National Drone Racing</h3>
+                        <p><strong>Date:</strong> March 15-17, 2025</p>
+                        <p><strong>Location:</strong> National Aviation Center</p>
+                        <p><strong>Status:</strong> Registration Open</p>
+                    </div>
+                    <div class="card">
+                        <h3>Solar Aircraft Challenge</h3>
+                        <p><strong>Date:</strong> June 20-22, 2025</p>
+                        <p><strong>Location:</strong> Desert Testing Facility</p>
+                        <p><strong>Status:</strong> Preparation Phase</p>
+                    </div>
+                    <div class="card">
+                        <h3>Flight Simulation Cup</h3>
+                        <p><strong>Date:</strong> September 10-12, 2025</p>
+                        <p><strong>Location:</strong> Virtual & On-site</p>
+                        <p><strong>Status:</strong> Coming Soon</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-plane"></i>
+                        Aeromodelling Club
+                    </div>
+                    <p class="footer-tagline">
+                        Connecting aviation enthusiasts, fostering innovation, and reaching new heights together.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/aero_club_iitk/" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="competitions.html">Competitions</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <!-- <li><a href="faq.html">FAQ</a></li> -->
+                    <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong>OAT Rooftop</strong>
+                                Aviation Innovation Center
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong>+1 (555) 123-4567</strong>
+                                Available 9AM-6PM
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong>contact@aeromodelling.com</strong>
+                                We reply within 24 hours
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2025 Aeromodelling Club. All Rights Reserved. | 
+                    <a href="#">Privacy Policy</a> | 
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/TextPlugin.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
